@@ -1,5 +1,5 @@
-FROM steeve/cross-compiler:android-arm
-MAINTAINER Steeve Morin "steeve.morin@gmail.com"
+FROM dmartinpro/cross-compiler:android-arm
+MAINTAINER David Martin "dmartinpro@gmail.com"
 
 RUN mkdir -p /build
 WORKDIR /build

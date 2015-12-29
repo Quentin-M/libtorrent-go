@@ -1,5 +1,5 @@
-FROM steeve/cross-compiler:linux-x64
-MAINTAINER Steeve Morin "steeve.morin@gmail.com"
+FROM dmartinpro/cross-compiler:linux-x64
+MAINTAINER David Martin "dmartinpro@gmail.com"
 
 RUN mkdir -p /build
 WORKDIR /build
