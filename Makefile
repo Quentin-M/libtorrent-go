@@ -12,8 +12,7 @@ DOCKER_IMAGE = dmartinpro/$(NAME)
 #			linux-arm \
 #			windows-x86 \
 #			windows-x64
-PLATFORMS = darwin-x64
-
+PLATFORMS = linux-arm darwin-x64
 
 include platform_host.mk
 
