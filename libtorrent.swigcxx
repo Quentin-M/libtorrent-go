@@ -27,6 +27,7 @@ namespace libtorrent
 {
     typedef int64_t size_type;
     class ptime;
+    class time_duration;
 }
 
 // These are problematic, ignore them for now
@@ -75,7 +76,7 @@ namespace libtorrent
 %include <libtorrent/session_settings.hpp>
 %include "torrent_handle.i"
 %include <libtorrent/session_status.hpp>
-%include <libtorrent/add_torrent_params.hpp>
+%include "add_torrent_params.i"
 %include "alert.i"
 %include "alert_types.i"
 %include <libtorrent/ptime.hpp>

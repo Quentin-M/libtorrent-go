@@ -9,6 +9,7 @@
 %template(std_vector_partial_piece_info) std::vector<libtorrent::partial_piece_info>;
 %template(std_vector_announce_entry) std::vector<libtorrent::announce_entry>;
 %template(std_vector_int) std::vector<int>;
+%template(std_vector_size_type) std::vector<long long>;
 %template(std_pair_int_int) std::pair<int, int>;
 %template(std_pair_string_int) std::pair<std::string, int>;
 
