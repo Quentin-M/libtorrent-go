@@ -3,6 +3,12 @@ libtorrent-go
 
 SWIG Go bindings for libtorrent-rasterbar
 
+```
+make build-envs
+make alldist
+```
+
+
 
 Windows
 =======
