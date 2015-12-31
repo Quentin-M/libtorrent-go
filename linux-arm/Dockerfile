@@ -45,7 +45,6 @@ RUN wget -nc https://github.com/arvidn/libtorrent/releases/download/libtorrent-`
 
 # Install SWIG
 # Need to build from >3.0.2 because Go 1.4.2
-#ENV SWIG_VERSION 5c57a8c877f88c9388b68067d665c63546244ba0
 ENV SWIG_VERSION rel-3.0.4
 RUN curl -L https://github.com/swig/swig/archive/${SWIG_VERSION}.tar.gz | tar xvz && \
     cd swig-${SWIG_VERSION}/ && \
