@@ -26,8 +26,7 @@ RUN curl -L http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz | ta
 
 # Install libtorrent
 ENV LIBTORRENT_VERSION 1.0.7
-ENV LIBTORRENT_URL_VERSION 1_0_7
-RUN wget -nc https://github.com/arvidn/libtorrent/releases/download/libtorrent-${LIBTORRENT_URL_VERSION}/libtorrent-rasterbar-${LIBTORRENT_VERSION}.tar.gz && \
+RUN wget -nc https://github.com/arvidn/libtorrent/releases/download/libtorrent-`echo ${LIBTORRENT_VERSION} | sed 's/\\./_/g'`/libtorrent-rasterbar-${LIBTORRENT_VERSION}.tar.gz && \
     tar xf libtorrent-rasterbar-${LIBTORRENT_VERSION}.tar.gz && \
     cd libtorrent-rasterbar-${LIBTORRENT_VERSION}/ && \
     sed -i 's/$PKG_CONFIG openssl --libs-only-/$PKG_CONFIG openssl --static --libs-only-/' ./configure && \
