@@ -54,11 +54,13 @@ RUN curl -L https://github.com/swig/swig/archive/${SWIG_VERSION}.tar.gz | tar xv
     rm -rf `pwd`
 
 # Install Golang
+# Patch in order to avoid a duplicate definition of PTHREAD_KEYS_MAX => Seems patched in Go 1.5
 ENV GO_VERSION 1.4.3
 RUN cd /usr/local && \
-    curl -L http://golang.org/dl/go${GO_VERSION}.src.tar.gz | tar xvz && \
-    cd /usr/local/go/src && \
-    CC_FOR_TARGET=${CROSS_TRIPLE}-cc CXX_FOR_TARGET=${CROSS_TRIPLE}-c++ GOOS=android GOARCH=arm GOARM=7 CGO_ENABLED=1 ./make.bash
+    curl -L http://golang.org/dl/go${GO_VERSION}.src.tar.gz | tar xvz
+RUN cd /usr/local/go/src/runtime/cgo/ && \
+    sed -e 's/#define PTHREAD_KEYS_MAX 128/#ifndef PTHREAD_KEYS_MAX\n#define PTHREAD_KEYS_MAX 128\n#endif/g' gcc_android_arm.c > gcc_android_arm.c2 && mv gcc_android_arm.c2 gcc_android_arm.c
+RUN cd /usr/local/go/src/ && CC_FOR_TARGET=${CROSS_TRIPLE}-cc CXX_FOR_TARGET=${CROSS_TRIPLE}-c++ GOOS=android GOARCH=arm GOARM=7 CGO_ENABLED=1 ./make.bash
 ENV PATH ${PATH}:/usr/local/go/bin
 
 WORKDIR /
