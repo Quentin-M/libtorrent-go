@@ -6,12 +6,12 @@ PKG_CONFIG = pkg-config
 DOCKER = docker
 DOCKER_IMAGE = dmartinpro/$(NAME)
 PLATFORMS = android-arm \
-			darwin-x64 \
-			linux-x86 \
-			linux-x64 \
-			linux-arm \
-			windows-x86 \
-			windows-x64
+		darwin-x64 \
+		linux-x86 \
+		linux-x64 \
+		linux-arm \
+		windows-x86 \
+		windows-x64
 
 include platform_host.mk
 
